@@ -53,4 +53,4 @@ The second plot is a Q-Q Plot with two distributions:
 
 2. The empircal distribution of the generated sample means.
 
-A <span style="color:pink">pink</span> line is also drawn, representing the theoretically correct quantile plot.
+A <span style="color:purple">purple</span> line is also drawn, representing the theoretically correct quantile plot.

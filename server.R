@@ -107,7 +107,7 @@ function(input, output) {
     output$qq <- renderPlot({
         if (! is.null(data())) {
             qqnorm(data())
-            qqline(data(), col="magenta", lwd=2)
+            qqline(data(), col="purple", lwd=2)
         }
     })
     
