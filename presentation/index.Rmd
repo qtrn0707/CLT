@@ -1,0 +1,49 @@
+---
+title: "Central Limit Theorem Demonstration"
+author: "qtrn0707"
+date: "August 20, 2017"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Overview
+
+This application is designed to demonstrate the Central Limit Theorem (CLT), one of the most important theorems in all of statistics. In short, the theorem says that the sample average tends toward a normal distribution when the sample size approaches infinity.
+
+The app allows the user to select from different distributions and tinker with the parameters of those distributions. The user can also choose the size of each sample and the number of samples.
+
+
+## Plots
+
+Two plots are drawn to demonstrate the CLT. First is a histogram of the sample means (when the <span style="color:red">theoretical normal density</span> and a <span style="color:blue">kernel density</span> can be drawn optionally).
+
+```{r}
+data <- rbeta(50*500, 50, 50); data <- matrix(data, nrow=500, ncol=50)
+data <- rowMeans(data)
+
+hist(data, freq=F, main = "Histogram of 500 sample means",
+     xlab = "Sample mean", ylab = "Density")
+
+mu <- mean(data); sigma <- sd(data)
+xs <- seq(min(data)-sigma, max(data)+sigma, length.out=1000)
+lines(xs, dnorm(xs, mu, sigma), col="red", lwd=2)
+
+lines(density(data), col="blue", lwd=2)
+```
+
+
+## Plots
+
+The second plot is a Q-Q Plot where the theoretical normal quantiles are on the x-axis and the sample quantiles are on the y-axis. There is also a line that represents the theoretically correct quantiles.
+```{r}
+qqnorm(data)
+qqline(data, col="purple", lwd=2)
+```
+
+
+## Purpose of this app
+
+With this app, users can see what types of distribution converge to normal faster, for example, the less skewed a distribution is, the faster it converges to the normal distribution. They may also get an idea for how big a sample should be before the sample mean converges to normal. 
