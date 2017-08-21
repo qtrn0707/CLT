@@ -39,10 +39,10 @@ fluidPage(
                         min = 10, max = 1000, value = 500),
             
             # Choose whether to display the normal density
-            checkboxInput("normD", "Display normal density"),
+            checkboxInput("normD", HTML("<span style=\"color:red\">Display normal density</span>")),
             
             # Choose whether to display the kernel density
-            checkboxInput("kernD", "Display kernel density")
+            checkboxInput("kernD", HTML("<span style=\"color:blue\">Display kernel density</span>"))
         ),
         
         # Show the histogram and qqnorm of the generated means
